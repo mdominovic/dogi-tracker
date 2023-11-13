@@ -66,6 +66,7 @@ def get_dogi_data(counter=0):
 def create_message(data):
     message = """
 🔔 Crypto Update: {tick}
+
 💲 Price: ${price_dollar} ({price_doge})
 📈 24h Change: {change_24h}
 💼 Holders: {holders}
