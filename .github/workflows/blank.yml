@@ -29,4 +29,4 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run Python script with secret
-        run: python dogi_tracker.py $API_KEY $CHAT_ID
+        run: python dogi_tracker.py "$API_KEY" "$CHAT_ID"
