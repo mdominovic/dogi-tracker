@@ -2,7 +2,7 @@ name: Notify chat about Dogi MC movement
 
 on:
   schedule:
-    - cron: '*/30 * * * *'
+    - cron: '0 */2 * * *'
 
   workflow_dispatch:
 
