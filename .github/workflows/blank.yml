@@ -30,3 +30,12 @@ jobs:
 
       - name: Run Python script with secret
         run: python dogi_tracker.py "$CHAT_ID" "$API_KEY"
+
+      - name: Commit and Push Changes
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          
+          git add dogi_data.json
+          git commit -m "Store dogi data"
+          git push origin master

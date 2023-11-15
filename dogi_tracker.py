@@ -1,5 +1,6 @@
 import argparse
 import asyncio
+import json
 import telegram
 import time
 import pandas as pd
@@ -11,7 +12,7 @@ from io import StringIO
 
 URL = "https://drc-20.org/marketplace"
 XPATH_TABLE = '//*[@id="root"]/section/main/div/div/div/div[3]/div[1]'
-
+DATA_FILE = "dogi_data.json"
 
 def generate_dogi_data(data):
     key = None
@@ -82,6 +83,14 @@ def create_message(data):
     return message
 
 
+def store_dogi_data(data):
+    with open(DATA_FILE, 'r') as file:
+        stored_data = json.load(file)
+    stored_data.append(data)
+    with open(DATA_FILE, 'w') as file:
+        json.dump(stored_data, file, indent=4)
+
+
 async def notify_chat(api_key, chat_id, message):
     bot = telegram.Bot(api_key)
     async with bot:
@@ -96,6 +105,7 @@ def main():
 
     dogi_data = get_dogi_data()
     message = create_message(dogi_data)
+    store_dogi_data(dogi_data)
     asyncio.run(notify_chat(str(args.api_key), str(args.chat_id), message))
 
 
