@@ -1,1 +1,12 @@
-[]
+[
+    {
+        "tick": "dogi",
+        "price_doge": "5.40 DOGE",
+        "price_dollar": "0.41",
+        "volume": "8,376,432.36 DOGE$629,974.72",
+        "change_24h": "+9.43%",
+        "market_cap": "$8,528,587.20",
+        "holders": 1584,
+        "supply": "21M"
+    }
+]
