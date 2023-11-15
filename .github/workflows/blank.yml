@@ -6,6 +6,9 @@ on:
 
   workflow_dispatch:
 
+
+permissions:
+  contents: write
 jobs:
   run_script:
     runs-on: ubuntu-latest
@@ -32,8 +35,6 @@ jobs:
         run: python dogi_tracker.py "$CHAT_ID" "$API_KEY"
 
       - name: Commit and Push Changes
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
