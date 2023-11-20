@@ -518,5 +518,15 @@
         "market_cap": "$16,863,598.20",
         "holders": 1980,
         "supply": "21M"
+    },
+    {
+        "tick": "dogi",
+        "price_doge": "10.00 DOGE",
+        "price_dollar": "0.81",
+        "volume": "14,363,384.35 DOGE$1,163,505.95",
+        "change_24h": "+29.43%",
+        "market_cap": "$17,002,548.73",
+        "holders": 1980,
+        "supply": "21M"
     }
 ]
