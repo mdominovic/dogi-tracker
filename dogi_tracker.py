@@ -1,5 +1,6 @@
 import argparse
 import asyncio
+import datetime
 import json
 import telegram
 import time
@@ -12,7 +13,7 @@ from io import StringIO
 
 URL = "https://drc-20.org/marketplace"
 XPATH_TABLE = '//*[@id="root"]/section/main/div/div/div/div[3]/div[1]'
-DATA_FILE = "dogi_data.json"
+DATA_FILE = "dogi_data_v2.json"
 
 def generate_dogi_data(data):
     key = None
@@ -37,7 +38,14 @@ def generate_dogi_data(data):
         "market_cap": data["Market Cap"][key],
         "holders": data["Holders"][key],
         "supply": data["Circulating Supply"][key],
+        "timestamp": get_current_time()
     }
+
+
+def get_current_time():
+    current_datetime = datetime.datetime.now()
+    formatted_datetime = current_datetime.strftime("%Y-%m-%dT%H:%M:%S")
+    return formatted_datetime
 
 
 def get_dogi_data(counter=0):
