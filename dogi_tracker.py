@@ -8,10 +8,12 @@ import pandas as pd
 from selenium import webdriver
 from selenium.webdriver import Chrome
 from selenium.webdriver.common.by import By
+from selenium.common.exceptions import NoSuchElementException
 from io import StringIO
 
 
 URL = "https://drc-20.org/marketplace"
+XPATH_CONFIRM_BUTTON = '//*[@id="root"]/section/main/div/div/div/div/button'
 XPATH_TABLE = '//*[@id="root"]/section/main/div/div/div/div[3]/div[1]'
 DATA_FILE = "dogi_data_v2.json"
 
@@ -55,6 +57,14 @@ def get_dogi_data(counter=0):
     driver = Chrome(options=options)
     driver.implicitly_wait(5)
     driver.get(URL)
+
+    try:
+        confirm_button = driver.find_elements(By.XPATH, XPATH_CONFIRM_BUTTON)
+        confirm_button[0].click()
+    except NoSuchElementException:
+        pass
+
+    driver.implicitly_wait(3)
     time.sleep(3)
     content = driver.find_elements(By.XPATH, XPATH_TABLE)
     html_string = content[0].get_attribute("innerHTML")
