@@ -3375,5 +3375,16 @@
         "holders": 7449,
         "supply": "21M",
         "timestamp": "2023-12-25T18:13:29"
+    },
+    {
+        "tick": "dogi",
+        "price_doge": "37.00 DOGE",
+        "price_dollar": "3.48",
+        "volume": "54,233,576.70 DOGE$5,103,054.17",
+        "change_24h": "+18.46%",
+        "market_cap": "$73,110,247.61",
+        "holders": 7460,
+        "supply": "21M",
+        "timestamp": "2023-12-25T20:11:22"
     }
 ]
